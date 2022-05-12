@@ -2,7 +2,6 @@
 #include "menuelem.hpp"
 #include <cmath>
 #include <vector>
-#include <iostream>
 
 using namespace genv;
 
@@ -188,9 +187,6 @@ void GordMenu::replaceVec(std::vector<std::string> vec)
     {
         delete m_elemek[i];
     }
-
-    std::cout << m_elemek.size() << std::endl;
-
     while(!m_elemek.empty())
     {
         m_elemek.pop_back();
@@ -214,7 +210,11 @@ void GordMenu::replaceVec(std::vector<std::string> vec)
         m_gordmax = m_elemek.size()-m_hatardb;
     }
 
-    if(m_elemek.size() > 0) m_szov = m_elemek[0]->m_szov;
+    if(m_elemek.size() > 0) 
+    {
+        m_szov = m_elemek[0]->m_szov;
+        m_index = 0;
+    }
     else m_szov = "";
 }
 
