@@ -141,6 +141,8 @@ class Allapot
 
         bool addKiadas(int kliens, int car)
         {
+            if(kliensek.empty()) return false;
+            if(autok.empty()) return false;
             for (size_t i = 0; i < kiadott.size(); i++)
             {
                 if(kiadott[i]->getKiad() ==kliensek[kliens]->getName() + ": " + autok[car]->getType()) 
@@ -154,11 +156,13 @@ class Allapot
             return true;
         }
 
-        void RemoveKiadas(int index)
+        bool RemoveKiadas(int index)
         {
+            if(kiadott.empty()) return false;
             addCar(kiadott[index]->getCar());
             addKliens(kiadott[index]->getKliens());
             kiadott.erase(kiadott.begin() + index);
+            return true;
         }
         
 };
@@ -214,10 +218,13 @@ class AutoKolcsonzo : public Window
                 }
             });
             p4 = new PushButton(this, 290, 220, 100, 30, "Visszahoz", [this](){
-                a.RemoveKiadas(g3->allapot());
-                g1->replaceVec(a.getKliens());
-                g2->replaceVec(a.getCar());
-                g3->replaceVec(a.getKiadott());
+
+                if(a.RemoveKiadas(g3->allapot()))
+                {
+                    g1->replaceVec(a.getKliens());
+                    g2->replaceVec(a.getCar());
+                    g3->replaceVec(a.getKiadott());
+                }
             });
             
         }

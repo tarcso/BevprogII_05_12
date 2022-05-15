@@ -201,6 +201,7 @@ void GordMenu::replaceVec(std::vector<std::string> vec)
     else m_hatardb = m_elemek.size();
 
     if(m_elemek.size() > m_hatardb) m_gorg = true;
+    else m_gorg = false;
 
     reset();
 
