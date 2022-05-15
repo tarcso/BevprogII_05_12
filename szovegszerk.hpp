@@ -18,6 +18,7 @@ public:
     void draw() const;
     void handle(const genv::event& ev);
     std::string allapot() const;
+    void clear();
 };
 
 

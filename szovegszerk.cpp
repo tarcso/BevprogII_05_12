@@ -63,3 +63,8 @@ std::string SzovegSzerk::allapot() const
 {
     return szov;
 }
+
+void SzovegSzerk::clear()
+{
+    szov = "";
+}

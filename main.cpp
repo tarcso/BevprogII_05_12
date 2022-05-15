@@ -204,10 +204,12 @@ class AutoKolcsonzo : public Window
             p1 = new PushButton(this, 290, 20, 100, 30, "Hozzáad", [this](){
                 if(a.addKliens(s1->allapot()))
                 g1->replaceVec(a.getKliens());
+                s1->clear();
             });
             p2 = new PushButton(this, 290, 70, 100, 30, "Hozzáad", [this](){
                 if(a.addCar(s2->allapot()))
-                    g2->replaceVec(a.getCar());
+                    g2->replaceVec(a.getCar()); 
+                    s2->clear();
             });
             p3 = new PushButton(this, 290, 120, 100, 80, "Elviszi", [this](){
                 if(a.addKiadas(g1->allapot(), g2->allapot()))
